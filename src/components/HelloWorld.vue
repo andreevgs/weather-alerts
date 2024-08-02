@@ -25,7 +25,7 @@ function subscribeNotifications() {
           headers: {
             "Content-Type": "application/json",
           },
-        });
+        }).catch((error) => alert(JSON.stringify(error)));
       });
   });
 }
