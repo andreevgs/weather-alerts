@@ -25,6 +25,7 @@ function subscribeNotifications() {
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "cors",
         }).catch((error) => alert(JSON.stringify(error)));
       });
   });
