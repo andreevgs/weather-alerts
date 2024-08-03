@@ -20,7 +20,7 @@ function subscribeNotifications() {
         alert(JSON.stringify(subscription));
         axios
           .post(
-            "https://grateful-catherin-weather-alerts-58ee34dc.koyeb.app/subscribe",
+            "https://grateful-catherin-weather-alerts-58ee34dc.koyeb.app/subscribe/",
             subscription,
             {
               headers: {
