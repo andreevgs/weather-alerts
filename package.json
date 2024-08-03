@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "prettier": "^3.3.3",
+    "axios": "^1.7.3",
     "vue": "^3.4.26"
   },
   "devDependencies": {
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vitejs/plugin-vue": "^5.0.4",
+    "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.10",
     "vite-plugin-pwa": "^0.20.0",

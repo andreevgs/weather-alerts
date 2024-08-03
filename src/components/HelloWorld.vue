@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import axios from "axios";
+
 defineProps<{ msg: string }>();
 
 function subscribeNotifications() {
@@ -16,17 +18,17 @@ function subscribeNotifications() {
       })
       .then((subscription) => {
         alert(JSON.stringify(subscription));
-        fetch(
-          `https://grateful-catherin-weather-alerts-58ee34dc.koyeb.app/subscribe`,
-          {
-            method: "POST",
-            body: JSON.stringify(subscription),
-            headers: {
-              "Content-Type": "application/json",
+        axios
+          .post(
+            "https://grateful-catherin-weather-alerts-58ee34dc.koyeb.app/subscribe",
+            subscription,
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
             },
-            mode: "cors",
-          },
-        ).catch((error) => alert(JSON.stringify(error)));
+          )
+          .catch((error) => alert(JSON.stringify(error)));
       });
   });
 }
