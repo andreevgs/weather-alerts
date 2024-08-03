@@ -18,8 +18,8 @@ function subscribeNotifications() {
         ),
       })
       .then((subscription) => {
-        console.log(subscription);
-        fetch(`http://${hostname.value}/subscribe`, {
+        alert(JSON.stringify(subscription));
+        fetch(`https://${hostname.value}/subscribe`, {
           method: "POST",
           body: JSON.stringify(subscription),
           headers: {
