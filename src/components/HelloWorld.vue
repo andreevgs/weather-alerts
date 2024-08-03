@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 defineProps<{ msg: string }>();
-const hostname = ref<string>("");
 
 function subscribeNotifications() {
   if (!navigator.serviceWorker) {
@@ -19,14 +16,17 @@ function subscribeNotifications() {
       })
       .then((subscription) => {
         alert(JSON.stringify(subscription));
-        fetch(`https://${hostname.value}/subscribe`, {
-          method: "POST",
-          body: JSON.stringify(subscription),
-          headers: {
-            "Content-Type": "application/json",
+        fetch(
+          `https://grateful-catherin-weather-alerts-58ee34dc.koyeb.app/subscribe`,
+          {
+            method: "POST",
+            body: JSON.stringify(subscription),
+            headers: {
+              "Content-Type": "application/json",
+            },
+            mode: "cors",
           },
-          mode: "cors",
-        }).catch((error) => alert(JSON.stringify(error)));
+        ).catch((error) => alert(JSON.stringify(error)));
       });
   });
 }
@@ -47,14 +47,7 @@ function urlBase64ToUint8Array(base64String: string) {
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <input type="text" v-model="hostname" />
-    <button
-      type="button"
-      @click="subscribeNotifications()"
-      :disabled="!hostname"
-    >
-      Notify
-    </button>
+    <button type="button" @click="subscribeNotifications()">Notify</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
